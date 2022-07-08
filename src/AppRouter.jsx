@@ -7,6 +7,7 @@ import ProtectedRoutes from './components/ProtectedRoutes'
 import HeaderScreen from './components/Shared/HeaderScreen'
 import PagesWithNavbar from './PagesWithNavbar'
 import PurchaseScreen from './components/Purchases/PurchaseScreen'
+import ProductScreen from './components/Products/ProductScreen'
 
 import axios from 'axios'
 
@@ -30,7 +31,7 @@ function AppRouter() {
   //   .then(res => console.log(res.data))
   //   .catch(err => console.log(err.data))
   // }, [])
-  
+
 
   const dispach = useDispatch()
 
@@ -46,13 +47,16 @@ function AppRouter() {
 
 
           <Route path='/' element={<PagesWithNavbar />}>
+
             <Route element={<ProtectedRoutes />} >
               <Route path='/cart' element={<CartScreen />} />
               <Route path='/purchases' element={<PurchaseScreen />} />
             </Route>
             <Route path='/login' element={<LoginScreen />} />
             <Route path='/' element={<HomeScreen />} />
+            <Route path="/product/:id" element={<ProductScreen />} />
           </Route>
+
         </Routes>
       </div>
 

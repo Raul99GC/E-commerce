@@ -35,12 +35,12 @@ const ProductCard = ({ product }) => {
       <header className='card-product__header'>
         <img
           className='card-product__img-back'
-          src={product.productImgs[1]}
+          src={product?.productImgs[1]}
           alt=""
         />
         <img
           className='card-product__img'
-          src={product.productImgs[0]}
+          src={product?.productImgs[0]}
           alt=""
         />
       </header>
