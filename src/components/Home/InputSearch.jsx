@@ -5,31 +5,34 @@ import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 
-const InputSearch = ({setFilterCategory, categories}) => {
+const InputSearch = ({setFilterCategory, categories, setProductSearch}) => {
 
   const { handleSubmit, register, reset } = useForm()
 
 
-  const submit = data => {
-    console.log(data)
+  const submit = e => {
+    e.preventDefault()
+    console.log(e.target[0].value)
+    setProductSearch(e.target[0].value)
   }
 
   // console.log(setNameCategory)
   const changeCategory = e => {
-    setFilterCategory(e.target.value)
+    console.log(e.target.id)
+    setFilterCategory(e.target.id)
   }
 
   return (
-    <form onSubmit={handleSubmit(submit)} className='form-home'>
+    <form onSubmit={submit} className='form-home'>
       <div className="form-home__container">
         <div className="dropwown-items">
           <h3 className='dropwown-item__h3'>Categories <i className='bx bx-chevron-down' ></i> </h3>
           <div className="menu">
             <ul>
-            <li onClick={changeCategory} value={'All products'} className='menu__item'>All products</li>
+            <li onClick={changeCategory} id={'All products'} className='menu__item'>All products</li>
               {
                 categories?.map(category => (
-                  <li onClick={changeCategory} value={category.name} className='menu__item' key={category.id}>{category.name}</li>
+                  <li onClick={changeCategory} id={category.name} className='menu__item' key={category.id}>{category.name}</li>
                 ))
               }
             </ul>

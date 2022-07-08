@@ -7,36 +7,36 @@ import './style/homeScreen.css'
 
 const HomeScreen = () => {
 
-
-  const products = useSelector(state => state.products)
-  const [listProducts, setListProducts] = useState()
   const [filterCategory, setFilterCategory] = useState('All products')
-  const [categoryList, setCategoryList] = useState()
   const [productSearch, setProductSearch] = useState()
-  const [filterProduct, setFilterProduct] = useState()
+  // const [filterProduct, setFilterProduct] = useState()
+  const products = useSelector(state => state.products)
 
   const [categories, setCategories] = useState()
+  const [filterProducts, setFilterProducts] = useState()
 
+  const allProducts = useSelector(state => state.products)
 
   useEffect(() => {
 
     if (filterCategory === 'All products') {
-      setListProducts(products)
-    } else {
-      console.log('en el esle')
-      const array = products?.filter(e => e.category.name === filterCategory)
-      setListProducts(array)
+      setFilterProducts(allProducts)
     }
+    else {
+      const filter = allProducts.filter(e => e.category.name === filterCategory)
+      setFilterProducts(filter)
 
+    }
 
   }, [filterCategory])
 
   useEffect(() => {
     if (productSearch) {
-      setFilterProduct(products.filter(e => e.category.name.includes(productSearch.toLowerCase())))
+      console.log(products)
+      setFilterProducts(products.filter(e => e.title.toLowerCase().includes(productSearch.toLowerCase())))
     }
     else {
-      setFilterProduct('')
+      setFilterProducts('')
     }
 
   }, [productSearch])
@@ -49,25 +49,30 @@ const HomeScreen = () => {
   }, [])
 
 
-  console.log(categories)
-
 
   return (
     <div className='home'>
       <InputSearch
-        setFilterCategory= {setFilterCategory}
+        setFilterCategory={setFilterCategory}
         categories={categories}
+        setProductSearch={setProductSearch}
       />
       <div className='products-container'>
         {
-          // filterProduct ? 
-          products?.map(product => (
-            <ProductCard
-              key={product.id}
-              product={product}
-            />
-          ))
-          // : 
+          filterProducts ?
+            filterProducts?.map(product => (
+              <ProductCard
+                key={product.id}
+                product={product}
+              />
+            ))
+            :
+            products?.map(product => (
+              <ProductCard
+                key={product.id}
+                product={product}
+              />
+            ))
 
         }
       </div>

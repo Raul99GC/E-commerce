@@ -1,45 +1,104 @@
 .login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-  .login__form {
-    width: max-content;
-    box-shadow: 0 0 20px #0005;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  .login__test {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
-    width: 100%;
-    height: 10rem;
-    padding: 12px 8px;
-    background-color: #d8f5fd;
-    color: #000;
-    border-radius: 5px;
-    margin-bottom: 5px;
-  }
-  .flex-login{
-    display: flex;
-    justify-content: space-around;
-  }
-  .login__title{
-    margin: 10px 0;
-  }
-  .login__item{
-    margin-bottom: 10px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
 
-  .logged {
-    text-align: center;
-  }
+.login__form {
+  width: max-content;
+  box-shadow: 0 0 20px #0005;
+  padding: 20px;
+  border-radius: 10px;
+}
 
-  .bxs-user-check {
-    font-size: 6rem;
-    text-align: center;
-  }
+.login__test {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  height: 10rem;
+  padding: 12px 8px;
+  background-color: #d8f5fd;
+  color: #000;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.flex-login {
+  display: flex;
+  justify-content: space-around;
+}
+
+.login__title {
+  margin: 10px 0;
+}
+
+.login__item {
+  margin-bottom: 10px;
+}
+
+.logged {
+  text-align: center;
+}
+
+.logged__h2 {
+  margin-bottom: 2rem;
+}
+
+.bxs-user-check {
+  font-size: 6rem;
+  text-align: center;
+}
+
+span {
+  position: relative;
+  display: inline-flex;
+  width: 180px;
+  height: 55px;
+  margin: 0 15px;
+  perspective: 1000px;
+}
+
+span a {
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+span a:before,
+span a:after {
+  position: absolute;
+  content: "BUTTON";
+  height: 55px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid black;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+span a:before {
+  color: #fff;
+  background: #000;
+  transform: rotateY(0deg) translateZ(25px);
+}
+
+span a:after {
+  color: #000;
+  transform: rotateX(90deg) translateZ(25px);
+}
+
+span a:hover {
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+
+/* aqui me guie de un tutorial xD */
