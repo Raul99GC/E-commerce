@@ -75,7 +75,7 @@ span a {
 span a:before,
 span a:after {
   position: absolute;
-  content: "BUTTON";
+  content: "Sing Out";
   height: 55px;
   width: 180px;
   display: flex;
