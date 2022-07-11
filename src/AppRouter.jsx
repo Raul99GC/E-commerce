@@ -16,53 +16,52 @@ import { getAllProducts } from './store/slices/products.slice'
 
 
 function AppRouter() {
-  // useEffect(() => {
-  //   const newUser= {
-  //     firstName: "Raul",
-  //     lastName: "Aja",
-  //     email: "rcg99@gmail.com",
-  //     password: "pass1234",
-  //     phone: "1234567891",
-  //     role: "admin"
+   // useEffect(() => {
+   //   const newUser= {
+   //     firstName: "Raul",
+   //     lastName: "Aja",
+   //     email: "juas1@gmail.com",
+   //     password: "pass1234",
+   //     phone: "1234567891",
+   //     role: "admin"
 
-  //   }
-  //   const URL = 'https://ecommerce-api-react.herokuapp.com/api/v1/users'
-  //   axios.post(URL, newUser)
-  //   .then(res => console.log(res.data))
-  //   .catch(err => console.log(err.data))
-  // }, [])
-
-
-  const dispach = useDispatch()
-
-  useEffect(() => {
-    dispach(getAllProducts())
-  }, [])
-
-  return (
-
-    <>
-      <div className="appRouter">
-        <Routes >
+   //   }
+   //   const URL = 'https://ecommerce-api-react.herokuapp.com/api/v1/users'
+   //   axios.post(URL, newUser)
+   //   .then(res => console.log(res.data))
+   //   .catch(err => console.log(err.data))
+   // }, [])
 
 
-          <Route path='/' element={<PagesWithNavbar />}>
+   const dispach = useDispatch()
 
-            <Route element={<ProtectedRoutes />} >
-              <Route path='/cart' element={<CartScreen />} />
-              <Route path='/purchases' element={<PurchaseScreen />} />
-            </Route>
-            <Route path='/login' element={<LoginScreen />} />
-            <Route path='/' element={<HomeScreen />} />
-            <Route path="/product/:id" element={<ProductScreen />} />
-          </Route>
+   useEffect(() => {
+      dispach(getAllProducts())
+   }, [])
 
-        </Routes>
-      </div>
+   return (
 
-    </>
+      <>
+         <div className="appRouter">
+            <Routes >
 
-  )
+               <Route path='/' element={<PagesWithNavbar />}>
+
+                  <Route element={< ProtectedRoutes />} >
+                     <Route path='/cart' element={<CartScreen />} />
+                     <Route path='/purchases' element={<PurchaseScreen />} />
+                  </Route>
+                  <Route path='/login' element={<LoginScreen />} />
+                  <Route path='/' element={<HomeScreen />} />
+                  <Route path="/product/:id" element={<ProductScreen />} />
+               </Route>
+
+            </Routes>
+         </div>
+
+      </>
+
+   )
 }
 
 export default AppRouter

@@ -62,7 +62,7 @@ span {
   perspective: 1000px;
 }
 
-span a {
+span div {
   font-size: 19px;
   letter-spacing: 1px;
   transform-style: preserve-3d;
@@ -72,8 +72,8 @@ span a {
 
 }
 
-span a:before,
-span a:after {
+span div:before,
+span div:after {
   position: absolute;
   content: "Sing Out";
   height: 55px;
@@ -86,18 +86,18 @@ span a:after {
   border-radius: 5px;
 }
 
-span a:before {
+span div:before {
   color: #fff;
   background: #000;
   transform: rotateY(0deg) translateZ(25px);
 }
 
-span a:after {
+span div:after {
   color: #000;
   transform: rotateX(90deg) translateZ(25px);
 }
 
-span a:hover {
+span div:hover {
   transform: translateZ(-25px) rotateX(-90deg);
 }
 

@@ -40,7 +40,7 @@ const InputSearch = ({setFilterCategory, categories, setProductSearch}) => {
         </div>
         <div className="form-home__search-container">
           <input className='form-home__input' placeholder='enter your product' type="text" {...register('searchText')} />
-          <button className='form-home__button'>Search</button>
+          <button className='form-home__button'><i className='bx bx-search-alt-2'></i></button>
         </div>
       </div>
     </form>

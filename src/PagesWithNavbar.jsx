@@ -7,7 +7,7 @@ const PagesWithNavbar = () => {
     return (
         <>
             <HeaderScreen />
-            <div className="">
+            <div className="main">
                 <Outlet />
 
             </div>

@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import getConfig from '../../utils/getConfig'
-import PurchaseCard from './PurchaseCard'
+import PurchasesCard from './PurchaseCard'
+import './styles/purchasesScreen.css'
 
 const PurchasesScreen = () => {
 
@@ -21,7 +22,7 @@ const PurchasesScreen = () => {
       <div className='purchases__container'>
         {
           purchases?.map(purchase => (
-            <PurchaseCard
+            <PurchasesCard 
               key={purchase.id}
               purchase={purchase}
             />
